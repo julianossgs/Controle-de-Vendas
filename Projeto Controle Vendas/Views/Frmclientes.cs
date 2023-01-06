@@ -61,5 +61,11 @@ namespace Projeto_Controle_Vendas.Views
         {
 
         }
+
+        private void Frmclientes_Load(object sender, EventArgs e)
+        {
+            ClienteDAO clienteDAO = new ClienteDAO();
+            gridCliente.DataSource = clienteDAO.ListarClientes();
+        }
     }
 }

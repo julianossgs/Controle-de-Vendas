@@ -2,6 +2,7 @@
 using Projeto_Controle_Vendas.Conexao;
 using Projeto_Controle_Vendas.Model;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace Projeto_Controle_Vendas.Dao
@@ -54,6 +55,36 @@ namespace Projeto_Controle_Vendas.Dao
 
                 MessageBox.Show("Erro ao cadastrar: " + e.Message);
             }
+        }
+        #endregion
+
+        #region ListarClientes
+        public DataTable ListarClientes()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string sql = "select * from tb_clientes";
+
+                // 2º passo - organizar o comando sql e executar
+                MySqlCommand executaCmd = new MySqlCommand(sql,conexao);
+
+                conexao.Open();
+                executaCmd.ExecuteNonQuery();
+
+                // 3º passo - Criar o DataAdapter p/ preencher os dados no DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executaCmd);
+                da.Fill(dt);
+                return dt;
+            }
+
+            catch (Exception e)
+            {
+
+                MessageBox.Show("Erro ao executar o comando sql" + e.Message);
+                return null;
+            }
+            
         }
         #endregion
     }

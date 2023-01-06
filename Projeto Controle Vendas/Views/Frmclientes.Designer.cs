@@ -502,7 +502,10 @@
             // 
             this.gridCliente.AllowUserToAddRows = false;
             this.gridCliente.AllowUserToDeleteRows = false;
+            this.gridCliente.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.gridCliente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridCliente.GridColor = System.Drawing.SystemColors.Control;
             this.gridCliente.Location = new System.Drawing.Point(20, 80);
             this.gridCliente.Name = "gridCliente";
             this.gridCliente.ReadOnly = true;
@@ -549,6 +552,7 @@
             this.Name = "Frmclientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Clientes";
+            this.Load += new System.EventHandler(this.Frmclientes_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabClientes.ResumeLayout(false);
