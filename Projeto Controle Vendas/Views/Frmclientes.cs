@@ -1,4 +1,5 @@
-﻿using Projeto_Controle_Vendas.Model;
+﻿using Projeto_Controle_Vendas.Dao;
+using Projeto_Controle_Vendas.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,37 +19,47 @@ namespace Projeto_Controle_Vendas.Views
             InitializeComponent();
         }
 
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void maskedTextBox3_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
         //Botão Salvar
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             // 1 passo - Armazenar os dados em um objeto model
             Cliente obj= new Cliente();
 
-            obj.ID = int.Parse(txtCodigo.Text);
             obj.Nome = txtNome.Text;
             obj.Rg = txtRG.Text;
             obj.Cpf = txtCPF.Text;
             obj.Email= txtEmail.Text;
             obj.Telefone= txtTelefone.Text;
             obj.Celular= txtCelular.Text;
-            obj.Cep=txtCPF.Text;
-            obj.Endereco= txtCPF.Text;
+            obj.Cep=txtCEP.Text;
+            obj.Endereco= txtCEP.Text;
             obj.Numero=int.Parse(txtNumero.Text);
             obj.Complemento=txtComplemento.Text;
             obj.Bairro=txtBairro.Text;
             obj.Cidade=txtCidade.Text;
             obj.Estado=cbUF.Text;
+
+            ClienteDAO clienteDAO = new ClienteDAO();
+            clienteDAO.CadastrarCliente(obj);
             
+        }
+
+        //botão Novo
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //botão salvar
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //botão excluir
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
