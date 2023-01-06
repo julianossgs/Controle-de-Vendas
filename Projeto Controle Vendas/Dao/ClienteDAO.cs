@@ -18,6 +18,13 @@ namespace Projeto_Controle_Vendas.Dao
             conexao = new ConnectionFactory().GetConnection();
         }
 
+        #region Limpar campos do form
+        public void LimparCampos()
+        {
+           
+        }
+        #endregion
+
         #region Cadastrar Cliente
         public void CadastrarCliente(Cliente obj)
         {
@@ -54,6 +61,72 @@ namespace Projeto_Controle_Vendas.Dao
             {
 
                 MessageBox.Show("Erro ao cadastrar: " + e.Message);
+            }
+        }
+        #endregion
+
+        #region Alterar Cliente
+        public void AlterarCliente(Cliente obj)
+        {
+            try
+            {
+                // 1º passo - definir o cmd Sql 
+                string sql = @"update tb_clientes
+                    nome=@nome,rg=@rg,cpf=@cpf,email=@email,telefone=@telefone,c elular=@celular,cep=@cep,endereco=@endereco,numero=@numero,complemento=@complemento,bairro=@bairro,cidade=@cidade,estado=@estado 
+                      where id=@id";
+                  
+
+                // 2º passo - Organizar o cmd sql
+                MySqlCommand cmd = new MySqlCommand(sql, conexao);
+                cmd.Parameters.AddWithValue("@id",obj.ID);
+                cmd.Parameters.AddWithValue("@nome", obj.Nome);
+                cmd.Parameters.AddWithValue("@rg", obj.Rg);
+                cmd.Parameters.AddWithValue("@cpf", obj.Cpf);
+                cmd.Parameters.AddWithValue("@email", obj.Email);
+                cmd.Parameters.AddWithValue("@telefone", obj.Telefone);
+                cmd.Parameters.AddWithValue("@celular", obj.Celular);
+                cmd.Parameters.AddWithValue("@cep", obj.Cep);
+                cmd.Parameters.AddWithValue("@endereco", obj.Endereco);
+                cmd.Parameters.AddWithValue("@numero", obj.Numero);
+                cmd.Parameters.AddWithValue("@complemento", obj.Complemento);
+                cmd.Parameters.AddWithValue("@bairro", obj.Bairro);
+                cmd.Parameters.AddWithValue("@cidade", obj.Cidade);
+                cmd.Parameters.AddWithValue("@estado", obj.Estado);
+
+                // 3º - Abrir a conexão e executar o comando sql
+                conexao.Open();
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Cliente alterado com sucesso!");
+
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show("Erro ao alterar: " + e.Message);
+            }
+        }
+
+        #endregion
+
+        #region Excluir Cliente
+        public void ExcluirCliente(Cliente obj)
+        {
+            try
+            {
+                string sql = "delete from tb_clientes where id = @id";
+                MySqlCommand cmd = new MySqlCommand(sql, conexao);
+                cmd.Parameters.AddWithValue("@id", obj.ID);
+
+                conexao.Open();
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Cliente excluido com sucesso!");
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show("Erro ao alterar: " + e.Message);
             }
         }
         #endregion

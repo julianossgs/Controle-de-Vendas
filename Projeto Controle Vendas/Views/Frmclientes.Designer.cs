@@ -511,6 +511,7 @@
             this.gridCliente.ReadOnly = true;
             this.gridCliente.Size = new System.Drawing.Size(828, 312);
             this.gridCliente.TabIndex = 30;
+            this.gridCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridCliente_CellClick);
             // 
             // btnPesquisar
             // 
