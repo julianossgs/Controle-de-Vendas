@@ -31,7 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.tabClientes = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabCadastro = new System.Windows.Forms.TabPage();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -64,15 +64,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabConsulta = new System.Windows.Forms.TabPage();
             this.gridCliente = new System.Windows.Forms.DataGridView();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabClientes.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabCadastro.SuspendLayout();
+            this.tabConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCliente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,8 +99,8 @@
             // 
             // tabClientes
             // 
-            this.tabClientes.Controls.Add(this.tabPage1);
-            this.tabClientes.Controls.Add(this.tabPage2);
+            this.tabClientes.Controls.Add(this.tabCadastro);
+            this.tabClientes.Controls.Add(this.tabConsulta);
             this.tabClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabClientes.Location = new System.Drawing.Point(21, 92);
             this.tabClientes.Name = "tabClientes";
@@ -108,48 +108,48 @@
             this.tabClientes.Size = new System.Drawing.Size(869, 444);
             this.tabClientes.TabIndex = 1;
             // 
-            // tabPage1
+            // tabCadastro
             // 
-            this.tabPage1.Controls.Add(this.btnExcluir);
-            this.tabPage1.Controls.Add(this.btnAlterar);
-            this.tabPage1.Controls.Add(this.btnSalvar);
-            this.tabPage1.Controls.Add(this.btnNovo);
-            this.tabPage1.Controls.Add(this.cbUF);
-            this.tabPage1.Controls.Add(this.label15);
-            this.tabPage1.Controls.Add(this.txtCidade);
-            this.tabPage1.Controls.Add(this.label14);
-            this.tabPage1.Controls.Add(this.txtBairro);
-            this.tabPage1.Controls.Add(this.label13);
-            this.tabPage1.Controls.Add(this.txtComplemento);
-            this.tabPage1.Controls.Add(this.label12);
-            this.tabPage1.Controls.Add(this.txtNumero);
-            this.tabPage1.Controls.Add(this.label11);
-            this.tabPage1.Controls.Add(this.txtEndereco);
-            this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.txtCEP);
-            this.tabPage1.Controls.Add(this.label9);
-            this.tabPage1.Controls.Add(this.txtCelular);
-            this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Controls.Add(this.txtTelefone);
-            this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.txtCPF);
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.txtRG);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.txtEmail);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.txtNome);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.txtCodigo);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(861, 411);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Dados Pessoais";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabCadastro.Controls.Add(this.btnExcluir);
+            this.tabCadastro.Controls.Add(this.btnAlterar);
+            this.tabCadastro.Controls.Add(this.btnSalvar);
+            this.tabCadastro.Controls.Add(this.btnNovo);
+            this.tabCadastro.Controls.Add(this.cbUF);
+            this.tabCadastro.Controls.Add(this.label15);
+            this.tabCadastro.Controls.Add(this.txtCidade);
+            this.tabCadastro.Controls.Add(this.label14);
+            this.tabCadastro.Controls.Add(this.txtBairro);
+            this.tabCadastro.Controls.Add(this.label13);
+            this.tabCadastro.Controls.Add(this.txtComplemento);
+            this.tabCadastro.Controls.Add(this.label12);
+            this.tabCadastro.Controls.Add(this.txtNumero);
+            this.tabCadastro.Controls.Add(this.label11);
+            this.tabCadastro.Controls.Add(this.txtEndereco);
+            this.tabCadastro.Controls.Add(this.label10);
+            this.tabCadastro.Controls.Add(this.txtCEP);
+            this.tabCadastro.Controls.Add(this.label9);
+            this.tabCadastro.Controls.Add(this.txtCelular);
+            this.tabCadastro.Controls.Add(this.label8);
+            this.tabCadastro.Controls.Add(this.txtTelefone);
+            this.tabCadastro.Controls.Add(this.label7);
+            this.tabCadastro.Controls.Add(this.txtCPF);
+            this.tabCadastro.Controls.Add(this.label6);
+            this.tabCadastro.Controls.Add(this.txtRG);
+            this.tabCadastro.Controls.Add(this.label5);
+            this.tabCadastro.Controls.Add(this.txtEmail);
+            this.tabCadastro.Controls.Add(this.label4);
+            this.tabCadastro.Controls.Add(this.txtNome);
+            this.tabCadastro.Controls.Add(this.label3);
+            this.tabCadastro.Controls.Add(this.txtCodigo);
+            this.tabCadastro.Controls.Add(this.label2);
+            this.tabCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabCadastro.Location = new System.Drawing.Point(4, 29);
+            this.tabCadastro.Name = "tabCadastro";
+            this.tabCadastro.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCadastro.Size = new System.Drawing.Size(861, 411);
+            this.tabCadastro.TabIndex = 0;
+            this.tabCadastro.Text = "Dados Pessoais";
+            this.tabCadastro.UseVisualStyleBackColor = true;
             // 
             // btnExcluir
             // 
@@ -484,19 +484,19 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Código";
             // 
-            // tabPage2
+            // tabConsulta
             // 
-            this.tabPage2.Controls.Add(this.gridCliente);
-            this.tabPage2.Controls.Add(this.btnPesquisar);
-            this.tabPage2.Controls.Add(this.txtPesquisa);
-            this.tabPage2.Controls.Add(this.label16);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(861, 411);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Consulta";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabConsulta.Controls.Add(this.gridCliente);
+            this.tabConsulta.Controls.Add(this.btnPesquisar);
+            this.tabConsulta.Controls.Add(this.txtPesquisa);
+            this.tabConsulta.Controls.Add(this.label16);
+            this.tabConsulta.Location = new System.Drawing.Point(4, 29);
+            this.tabConsulta.Name = "tabConsulta";
+            this.tabConsulta.Padding = new System.Windows.Forms.Padding(3);
+            this.tabConsulta.Size = new System.Drawing.Size(861, 411);
+            this.tabConsulta.TabIndex = 1;
+            this.tabConsulta.Text = "Consulta";
+            this.tabConsulta.UseVisualStyleBackColor = true;
             // 
             // gridCliente
             // 
@@ -524,6 +524,7 @@
             this.btnPesquisar.TabIndex = 29;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // txtPesquisa
             // 
@@ -532,6 +533,7 @@
             this.txtPesquisa.Size = new System.Drawing.Size(247, 26);
             this.txtPesquisa.TabIndex = 5;
             this.txtPesquisa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
             // 
             // label16
             // 
@@ -557,10 +559,10 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabClientes.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabCadastro.ResumeLayout(false);
+            this.tabCadastro.PerformLayout();
+            this.tabConsulta.ResumeLayout(false);
+            this.tabConsulta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCliente)).EndInit();
             this.ResumeLayout(false);
 
@@ -571,8 +573,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabClientes;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabCadastro;
+        private System.Windows.Forms.TabPage tabConsulta;
         private System.Windows.Forms.MaskedTextBox txtCelular;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.MaskedTextBox txtTelefone;

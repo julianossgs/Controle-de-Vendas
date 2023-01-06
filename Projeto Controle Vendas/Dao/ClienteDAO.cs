@@ -72,7 +72,7 @@ namespace Projeto_Controle_Vendas.Dao
             {
                 // 1º passo - definir o cmd Sql 
                 string sql = @"update tb_clientes
-                    nome=@nome,rg=@rg,cpf=@cpf,email=@email,telefone=@telefone,c elular=@celular,cep=@cep,endereco=@endereco,numero=@numero,complemento=@complemento,bairro=@bairro,cidade=@cidade,estado=@estado 
+                   set nome=@nome,rg=@rg,cpf=@cpf,email=@email,telefone=@telefone,c elular=@celular,cep=@cep,endereco=@endereco,numero=@numero,complemento=@complemento,bairro=@bairro,cidade=@cidade,estado=@estado 
                       where id=@id";
                   
 
@@ -99,6 +99,9 @@ namespace Projeto_Controle_Vendas.Dao
 
                 MessageBox.Show("Cliente alterado com sucesso!");
 
+                //Fechando a conexão
+                conexao.Close();
+
             }
             catch (Exception e)
             {
@@ -122,6 +125,9 @@ namespace Projeto_Controle_Vendas.Dao
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Cliente excluido com sucesso!");
+
+                //Fechando a conexão
+                conexao.Close();
             }
             catch (Exception e)
             {
@@ -148,8 +154,14 @@ namespace Projeto_Controle_Vendas.Dao
                 // 3º passo - Criar o DataAdapter p/ preencher os dados no DataTable
                 MySqlDataAdapter da = new MySqlDataAdapter(executaCmd);
                 da.Fill(dt);
+
+                //fechando a conexão
+                conexao.Close();
+
                 return dt;
+
             }
+            
 
             catch (Exception e)
             {
@@ -158,6 +170,80 @@ namespace Projeto_Controle_Vendas.Dao
                 return null;
             }
             
+        }
+        #endregion
+
+        #region BuscarClienteNome
+        public DataTable BuscarClienteNome(string nome)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string sql = "select * from tb_clientes where nome like @nome";
+
+                // 2º passo - organizar o comando sql e executar
+                MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
+                executaCmd.Parameters.AddWithValue("@nome", nome);
+
+                conexao.Open();
+                executaCmd.ExecuteNonQuery();
+
+                // 3º passo - Criar o DataAdapter p/ preencher os dados no DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executaCmd);
+                da.Fill(dt);
+
+                //fechando a conexão
+                conexao.Close();
+
+                return dt;
+
+            }
+
+
+            catch (Exception e)
+            {
+
+                MessageBox.Show("Erro ao executar o comando sql" + e.Message);
+                return null;
+            }
+
+        }
+        #endregion
+
+        #region
+        public DataTable ListarClienteNome(string nome)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string sql = "select * from tb_clientes where nome like @nome";
+
+                // 2º passo - organizar o comando sql e executar
+                MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
+                executaCmd.Parameters.AddWithValue("@nome", nome);
+
+                conexao.Open();
+                executaCmd.ExecuteNonQuery();
+
+                // 3º passo - Criar o DataAdapter p/ preencher os dados no DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executaCmd);
+                da.Fill(dt);
+
+                //fechando a conexão
+                conexao.Close();
+
+                return dt;
+
+            }
+
+
+            catch (Exception e)
+            {
+
+                MessageBox.Show("Erro ao executar o comando sql" + e.Message);
+                return null;
+            }
+
         }
         #endregion
     }

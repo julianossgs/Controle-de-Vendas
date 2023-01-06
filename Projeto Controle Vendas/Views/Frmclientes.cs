@@ -42,7 +42,10 @@ namespace Projeto_Controle_Vendas.Views
 
             ClienteDAO clienteDAO = new ClienteDAO();
             clienteDAO.CadastrarCliente(obj);
-            
+
+            //atualizando o grid após a exclusão
+            gridCliente.DataSource= clienteDAO.ListarClientes(); 
+
         }
 
         //botão Novo
@@ -67,6 +70,7 @@ namespace Projeto_Controle_Vendas.Views
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             Cliente obj = new Cliente();
+            obj.ID = int.Parse(txtCodigo.Text);
             obj.Nome = txtNome.Text;
             obj.Rg = txtRG.Text;
             obj.Cpf = txtCPF.Text;
@@ -83,16 +87,23 @@ namespace Projeto_Controle_Vendas.Views
 
             ClienteDAO clienteDAO= new ClienteDAO();
             clienteDAO.AlterarCliente(obj);
+
+            //atualizando o grid após a exclusão
+            gridCliente.DataSource= clienteDAO.ListarClientes(); 
         }
 
         //botão excluir
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            Cliente obj =new Cliente();
-            obj.ID = int.Parse(txtCodigo.Text);
+                Cliente obj = new Cliente();
+                obj.ID = int.Parse(txtCodigo.Text);
 
-            ClienteDAO clienteDAO=new ClienteDAO();
-            clienteDAO.ExcluirCliente(obj);
+                ClienteDAO clienteDAO = new ClienteDAO();
+                clienteDAO.ExcluirCliente(obj);
+
+                //atualizando o grid após a exclusão
+                gridCliente.DataSource= clienteDAO.ListarClientes(); 
+            
         }
 
         private void Frmclientes_Load(object sender, EventArgs e)
@@ -119,6 +130,57 @@ namespace Projeto_Controle_Vendas.Views
             txtCidade.Text = gridCliente.CurrentRow.Cells[11].Value.ToString();
             cbUF.Text = gridCliente.CurrentRow.Cells[12].Value.ToString();
            
+            //alterando o tab page p/ a guia tabCadastro
+            tabClientes.SelectedTab = tabCadastro;
+        }
+
+        //botão pesquisar
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            string nome = "%" + txtPesquisa.Text + "%";
+            ClienteDAO clienteDAO = new ClienteDAO();
+
+            if (txtPesquisa.Text == null || txtPesquisa.Text == string.Empty)
+            {
+                MessageBox.Show("Informe um nome para a pesquisa!");
+                txtPesquisa.Focus();
+                gridCliente.DataSource = clienteDAO.ListarClientes();
+                return;
+                  
+            }
+
+            if (gridCliente.Rows.Count == 0)
+            {
+                MessageBox.Show("Cliente não encontrado!");
+                txtPesquisa.Focus();
+                gridCliente.DataSource = clienteDAO.ListarClientes();
+                return;
+            }
+
+            else
+            {
+               
+                gridCliente.DataSource = clienteDAO.BuscarClienteNome(nome);
+            }
+
+           
+        }
+
+        private void txtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            string nome = "%" + txtPesquisa.Text + "%";
+            ClienteDAO clienteDAO = new ClienteDAO();
+
+            gridCliente.DataSource = clienteDAO.ListarClienteNome(nome);
+
+            if (gridCliente.Rows.Count == 0)
+            {
+                MessageBox.Show("Cliente não encontrado!");
+                txtPesquisa.Focus();
+                gridCliente.DataSource = clienteDAO.ListarClientes();
+                return;
+            }
+
         }
     }
 }
