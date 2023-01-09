@@ -69,6 +69,7 @@
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.btPesquisarAPI = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabClientes.SuspendLayout();
             this.tabCadastro.SuspendLayout();
@@ -110,6 +111,7 @@
             // 
             // tabCadastro
             // 
+            this.tabCadastro.Controls.Add(this.btPesquisarAPI);
             this.tabCadastro.Controls.Add(this.btnExcluir);
             this.tabCadastro.Controls.Add(this.btnAlterar);
             this.tabCadastro.Controls.Add(this.btnSalvar);
@@ -545,6 +547,19 @@
             this.label16.TabIndex = 4;
             this.label16.Text = "Nome";
             // 
+            // btPesquisarAPI
+            // 
+            this.btPesquisarAPI.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btPesquisarAPI.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btPesquisarAPI.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btPesquisarAPI.Location = new System.Drawing.Point(621, 113);
+            this.btPesquisarAPI.Name = "btPesquisarAPI";
+            this.btPesquisarAPI.Size = new System.Drawing.Size(111, 27);
+            this.btPesquisarAPI.TabIndex = 32;
+            this.btPesquisarAPI.Text = "Pesquisar";
+            this.btPesquisarAPI.UseVisualStyleBackColor = false;
+            this.btPesquisarAPI.Click += new System.EventHandler(this.btPesquisarAPI_Click);
+            // 
             // Frmclientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -611,5 +626,6 @@
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btPesquisarAPI;
     }
 }

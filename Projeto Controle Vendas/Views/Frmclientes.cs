@@ -51,6 +51,7 @@ namespace Projeto_Controle_Vendas.Views
         //botão Novo
         private void btnNovo_Click(object sender, EventArgs e)
         {
+            /*
             txtCodigo.Clear();
             txtCidade.Clear();
             txtTelefone.Clear();
@@ -62,6 +63,8 @@ namespace Projeto_Controle_Vendas.Views
             txtComplemento.Clear();
             txtNumero.Clear();
             txtBairro.Clear();
+            */
+            new ClienteDAO().LimparTela(this);
             txtNome.Focus();
             
         }
@@ -120,15 +123,16 @@ namespace Projeto_Controle_Vendas.Views
             txtNome.Text = gridCliente.CurrentRow.Cells[1].Value.ToString();  
             txtRG.Text = gridCliente.CurrentRow.Cells[2].Value.ToString();
             txtCPF.Text = gridCliente.CurrentRow.Cells[3].Value.ToString();
-            txtTelefone.Text = gridCliente.CurrentRow.Cells[4].Value.ToString();
-            txtCelular.Text = gridCliente.CurrentRow.Cells[5].Value.ToString();
-            txtCEP.Text = gridCliente.CurrentRow.Cells[6].Value.ToString();
-            txtEndereco.Text = gridCliente.CurrentRow.Cells[7].Value.ToString();
-            txtNumero.Text = gridCliente.CurrentRow.Cells[8].Value.ToString();
-            txtComplemento.Text = gridCliente.CurrentRow.Cells[9].Value.ToString();
-            txtBairro.Text = gridCliente.CurrentRow.Cells[10].Value.ToString();
-            txtCidade.Text = gridCliente.CurrentRow.Cells[11].Value.ToString();
-            cbUF.Text = gridCliente.CurrentRow.Cells[12].Value.ToString();
+            txtEmail.Text = gridCliente.CurrentRow.Cells[4].Value.ToString(); 
+            txtTelefone.Text = gridCliente.CurrentRow.Cells[5].Value.ToString();
+            txtCelular.Text = gridCliente.CurrentRow.Cells[6].Value.ToString();
+            txtCEP.Text = gridCliente.CurrentRow.Cells[7].Value.ToString();
+            txtEndereco.Text = gridCliente.CurrentRow.Cells[8].Value.ToString();
+            txtNumero.Text = gridCliente.CurrentRow.Cells[9].Value.ToString();
+            txtComplemento.Text = gridCliente.CurrentRow.Cells[10].Value.ToString();
+            txtBairro.Text = gridCliente.CurrentRow.Cells[11].Value.ToString();
+            txtCidade.Text = gridCliente.CurrentRow.Cells[12].Value.ToString();
+            cbUF.Text = gridCliente.CurrentRow.Cells[13].Value.ToString();
            
             //alterando o tab page p/ a guia tabCadastro
             tabClientes.SelectedTab = tabCadastro;
@@ -181,6 +185,31 @@ namespace Projeto_Controle_Vendas.Views
                 return;
             }
 
+        }
+
+        private void btPesquisarAPI_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string cep = txtCEP.Text;
+                string xml = "https://viacep.com.br/ws/"+cep+"/xml/";
+
+                DataSet dados = new DataSet();
+                dados.ReadXml(xml);
+
+                txtEndereco.Text = dados.Tables[0].Rows[0]["logradouro"].ToString();
+                txtBairro.Text = dados.Tables[0].Rows[0]["bairro"].ToString();
+                txtCidade.Text = dados.Tables[0].Rows[0]["localidade"].ToString();
+                txtComplemento.Text = dados.Tables[0].Rows[0]["complemento"].ToString();
+                cbUF.Text = dados.Tables[0].Rows[0]["uf"].ToString();
+
+
+            }
+            catch (Exception) 
+            {
+
+                MessageBox.Show("Endereço não encontrado!!! ");
+            }
         }
     }
 }
