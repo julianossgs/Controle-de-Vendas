@@ -18,21 +18,22 @@ namespace Projeto_Controle_Vendas.Views
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             // 1 passo - Armazenar os dados em um objeto model
-            Cliente obj= new Cliente();
-
-            obj.Nome = txtNome.Text;
-            obj.Rg = txtRG.Text;
-            obj.Cpf = txtCPF.Text;
-            obj.Email= txtEmail.Text;
-            obj.Telefone= txtTelefone.Text;
-            obj.Celular= txtCelular.Text;
-            obj.Cep=txtCEP.Text;
-            obj.Endereco= txtCEP.Text;
-            obj.Numero=int.Parse(txtNumero.Text);
-            obj.Complemento=txtComplemento.Text;
-            obj.Bairro=txtBairro.Text;
-            obj.Cidade=txtCidade.Text;
-            obj.Estado=cbUF.Text;
+            Cliente obj = new Cliente
+            {
+                Nome = txtNome.Text,
+                Rg = txtRG.Text,
+                Cpf = txtCPF.Text,
+                Email= txtEmail.Text,
+                Telefone= txtTelefone.Text,
+                Celular= txtCelular.Text,
+                Cep=txtCEP.Text,
+                Endereco= txtCEP.Text,
+                Numero=int.Parse(txtNumero.Text),
+                Complemento=txtComplemento.Text,
+                Bairro=txtBairro.Text,
+                Cidade=txtCidade.Text,
+                Estado=cbUF.Text
+            };
 
             ClienteDAO clienteDAO = new ClienteDAO();
             clienteDAO.CadastrarCliente(obj);
@@ -54,21 +55,23 @@ namespace Projeto_Controle_Vendas.Views
         //botão salvar
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            Cliente obj = new Cliente();
-            obj.ID = int.Parse(txtCodigo.Text);
-            obj.Nome = txtNome.Text;
-            obj.Rg = txtRG.Text;
-            obj.Cpf = txtCPF.Text;
-            obj.Email= txtEmail.Text;
-            obj.Telefone= txtTelefone.Text;
-            obj.Celular= txtCelular.Text;
-            obj.Cep=txtCEP.Text;
-            obj.Endereco= txtEndereco.Text;
-            obj.Numero=int.Parse(txtNumero.Text);
-            obj.Complemento=txtComplemento.Text;
-            obj.Bairro=txtBairro.Text;
-            obj.Cidade=txtCidade.Text;
-            obj.Estado=cbUF.Text;
+            Cliente obj = new Cliente
+            {
+                ID = int.Parse(txtCodigo.Text),
+                Nome = txtNome.Text,
+                Rg = txtRG.Text,
+                Cpf = txtCPF.Text,
+                Email= txtEmail.Text,
+                Telefone= txtTelefone.Text,
+                Celular= txtCelular.Text,
+                Cep=txtCEP.Text,
+                Endereco= txtEndereco.Text,
+                Numero=int.Parse(txtNumero.Text),
+                Complemento=txtComplemento.Text,
+                Bairro=txtBairro.Text,
+                Cidade=txtCidade.Text,
+                Estado=cbUF.Text
+            };
 
             ClienteDAO clienteDAO= new ClienteDAO();
             clienteDAO.AlterarCliente(obj);

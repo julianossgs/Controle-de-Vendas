@@ -30,8 +30,14 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabClientes = new System.Windows.Forms.TabControl();
+            this.tabFuncionarios = new System.Windows.Forms.TabControl();
             this.tabCadastro = new System.Windows.Forms.TabPage();
+            this.cbNivel = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.cbCargo = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtSenha = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.btPesquisarAPI = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
@@ -70,14 +76,8 @@
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtSenha = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.cbCargo = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.cbNivel = new System.Windows.Forms.ComboBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.tabClientes.SuspendLayout();
+            this.tabFuncionarios.SuspendLayout();
             this.tabCadastro.SuspendLayout();
             this.tabConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridFuncionario)).BeginInit();
@@ -104,16 +104,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Cadastro de Funcionários\r\n";
             // 
-            // tabClientes
+            // tabFuncionarios
             // 
-            this.tabClientes.Controls.Add(this.tabCadastro);
-            this.tabClientes.Controls.Add(this.tabConsulta);
-            this.tabClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabClientes.Location = new System.Drawing.Point(12, 81);
-            this.tabClientes.Name = "tabClientes";
-            this.tabClientes.SelectedIndex = 0;
-            this.tabClientes.Size = new System.Drawing.Size(880, 523);
-            this.tabClientes.TabIndex = 2;
+            this.tabFuncionarios.Controls.Add(this.tabCadastro);
+            this.tabFuncionarios.Controls.Add(this.tabConsulta);
+            this.tabFuncionarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabFuncionarios.Location = new System.Drawing.Point(12, 81);
+            this.tabFuncionarios.Name = "tabFuncionarios";
+            this.tabFuncionarios.SelectedIndex = 0;
+            this.tabFuncionarios.Size = new System.Drawing.Size(880, 523);
+            this.tabFuncionarios.TabIndex = 2;
             // 
             // tabCadastro
             // 
@@ -164,6 +164,69 @@
             this.tabCadastro.TabIndex = 0;
             this.tabCadastro.Text = "Dados Pessoais";
             this.tabCadastro.UseVisualStyleBackColor = true;
+            // 
+            // cbNivel
+            // 
+            this.cbNivel.FormattingEnabled = true;
+            this.cbNivel.Items.AddRange(new object[] {
+            "Administrador",
+            "Usuário"});
+            this.cbNivel.Location = new System.Drawing.Point(606, 348);
+            this.cbNivel.Name = "cbNivel";
+            this.cbNivel.Size = new System.Drawing.Size(190, 28);
+            this.cbNivel.TabIndex = 17;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label19.Location = new System.Drawing.Point(558, 356);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(42, 20);
+            this.label19.TabIndex = 38;
+            this.label19.Text = "Nível";
+            // 
+            // cbCargo
+            // 
+            this.cbCargo.FormattingEnabled = true;
+            this.cbCargo.Items.AddRange(new object[] {
+            "Gerente",
+            "Vendedor",
+            "Estagiário"});
+            this.cbCargo.Location = new System.Drawing.Point(323, 348);
+            this.cbCargo.Name = "cbCargo";
+            this.cbCargo.Size = new System.Drawing.Size(190, 28);
+            this.cbCargo.TabIndex = 16;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label18.Location = new System.Drawing.Point(265, 356);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(52, 20);
+            this.label18.TabIndex = 36;
+            this.label18.Text = "Cargo";
+            // 
+            // txtSenha
+            // 
+            this.txtSenha.Location = new System.Drawing.Point(99, 350);
+            this.txtSenha.MaxLength = 4;
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PasswordChar = '*';
+            this.txtSenha.Size = new System.Drawing.Size(133, 26);
+            this.txtSenha.TabIndex = 15;
+            this.txtSenha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label17.Location = new System.Drawing.Point(37, 356);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(56, 20);
+            this.label17.TabIndex = 34;
+            this.label17.Text = "Senha";
             // 
             // btPesquisarAPI
             // 
@@ -538,6 +601,7 @@
             this.gridFuncionario.ReadOnly = true;
             this.gridFuncionario.Size = new System.Drawing.Size(828, 312);
             this.gridFuncionario.TabIndex = 30;
+            this.gridFuncionario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridFuncionario_CellClick);
             // 
             // btnPesquisar
             // 
@@ -550,6 +614,7 @@
             this.btnPesquisar.TabIndex = 29;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // txtPesquisa
             // 
@@ -558,6 +623,7 @@
             this.txtPesquisa.Size = new System.Drawing.Size(247, 26);
             this.txtPesquisa.TabIndex = 5;
             this.txtPesquisa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
             // 
             // label16
             // 
@@ -569,84 +635,22 @@
             this.label16.TabIndex = 4;
             this.label16.Text = "Nome";
             // 
-            // txtSenha
-            // 
-            this.txtSenha.Location = new System.Drawing.Point(99, 350);
-            this.txtSenha.MaxLength = 4;
-            this.txtSenha.Name = "txtSenha";
-            this.txtSenha.PasswordChar = '*';
-            this.txtSenha.Size = new System.Drawing.Size(133, 26);
-            this.txtSenha.TabIndex = 15;
-            this.txtSenha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label17.Location = new System.Drawing.Point(37, 356);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(56, 20);
-            this.label17.TabIndex = 34;
-            this.label17.Text = "Senha";
-            // 
-            // cbCargo
-            // 
-            this.cbCargo.FormattingEnabled = true;
-            this.cbCargo.Items.AddRange(new object[] {
-            "Gerente",
-            "Vendedor",
-            "Estagiário"});
-            this.cbCargo.Location = new System.Drawing.Point(323, 348);
-            this.cbCargo.Name = "cbCargo";
-            this.cbCargo.Size = new System.Drawing.Size(190, 28);
-            this.cbCargo.TabIndex = 16;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label18.Location = new System.Drawing.Point(265, 356);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(52, 20);
-            this.label18.TabIndex = 36;
-            this.label18.Text = "Cargo";
-            // 
-            // cbNivel
-            // 
-            this.cbNivel.FormattingEnabled = true;
-            this.cbNivel.Items.AddRange(new object[] {
-            "Administrador",
-            "Usuário"});
-            this.cbNivel.Location = new System.Drawing.Point(606, 348);
-            this.cbNivel.Name = "cbNivel";
-            this.cbNivel.Size = new System.Drawing.Size(190, 28);
-            this.cbNivel.TabIndex = 17;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label19.Location = new System.Drawing.Point(558, 356);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(42, 20);
-            this.label19.TabIndex = 38;
-            this.label19.Text = "Nível";
-            // 
             // Frmfuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(905, 611);
-            this.Controls.Add(this.tabClientes);
+            this.Controls.Add(this.tabFuncionarios);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 15.75F);
             this.Margin = new System.Windows.Forms.Padding(7, 5, 7, 5);
             this.Name = "Frmfuncionarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Funcionários";
+            this.Load += new System.EventHandler(this.Frmfuncionarios_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tabClientes.ResumeLayout(false);
+            this.tabFuncionarios.ResumeLayout(false);
             this.tabCadastro.ResumeLayout(false);
             this.tabCadastro.PerformLayout();
             this.tabConsulta.ResumeLayout(false);
@@ -660,7 +664,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tabClientes;
+        private System.Windows.Forms.TabControl tabFuncionarios;
         private System.Windows.Forms.TabPage tabCadastro;
         private System.Windows.Forms.ComboBox cbNivel;
         private System.Windows.Forms.Label label19;

@@ -7,83 +7,31 @@ using System.Windows.Forms;
 
 namespace Projeto_Controle_Vendas.Dao
 {
-    internal class ClienteDAO
+    internal class FuncionarioDAO
     {
-        //atributo da classe
         private MySqlConnection conexao;
 
-        //Construtor da classe
-        public ClienteDAO() 
+        public FuncionarioDAO()
         {
-            conexao = new ConnectionFactory().GetConnection();
+            conexao=new ConnectionFactory().GetConnection();
         }
 
-        #region Limpar campos do form
-        public void LimparCampos()
-        {
-           
-        }
-        #endregion
-
-        #region Cadastrar Cliente
-        public void CadastrarCliente(Cliente obj)
+        #region Cadastrar Funcionarios
+        public void CadastrarFuncionario(Funcionario obj)
         {
             try
             {
-                // 1º passo - definir o cmd Sql 
-                string sql = @"insert into tb_clientes(nome,rg,cpf,email,telefone,celular,cep,endereco,numero,complemento,bairro,cidade,estado) 
-                   values(@nome,@rg,@cpf,@email,@telefone,@celular,@cep,@endereco,@numero,@complemento,@bairro,@cidade,@estado)";
-
-                // 2º passo - Organizar o cmd sql
-                MySqlCommand cmd = new MySqlCommand(sql,conexao);
-                cmd.Parameters.AddWithValue("@nome", obj.Nome);
-                cmd.Parameters.AddWithValue("@rg", obj.Rg);
-                cmd.Parameters.AddWithValue("@cpf", obj.Cpf);
-                cmd.Parameters.AddWithValue("@email", obj.Email);
-                cmd.Parameters.AddWithValue("@telefone", obj.Telefone);
-                cmd.Parameters.AddWithValue("@celular", obj.Celular);
-                cmd.Parameters.AddWithValue("@cep", obj.Cep);
-                cmd.Parameters.AddWithValue("@endereco", obj.Endereco);
-                cmd.Parameters.AddWithValue("@numero", obj.Numero);
-                cmd.Parameters.AddWithValue("@complemento", obj.Complemento);
-                cmd.Parameters.AddWithValue("@bairro",obj.Bairro);
-                cmd.Parameters.AddWithValue("@cidade",obj.Cidade);
-                cmd.Parameters.AddWithValue("@estado",obj.Estado);
-
-                // 3º - Abrir a conexão e executar o comando sql
-                conexao.Open();
-                cmd.ExecuteNonQuery();
-
-                MessageBox.Show("Cliente cadastrado com sucesso!");
-
-            }
-            catch (Exception e)
-            {
-
-                MessageBox.Show("Erro ao cadastrar: " + e.Message);
-            }
-            finally { conexao.Close(); }
-        }
-        #endregion
-
-        #region Alterar Cliente
-        public void AlterarCliente(Cliente obj)
-        {
-            try
-            {
-                // 1º passo - definir o cmd Sql 
-                string sql = @"update tb_clientes
-                   set nome=@nome,rg=@rg,cpf=@cpf,email=@email,telefone=@telefone,c elular=@celular,cep=@cep,endereco=@endereco,numero=@numero,complemento=@complemento,bairro=@bairro,cidade=@cidade,estado=@estado 
-                      where id=@id";
-                  
+                string sql = @"insert into tb_funcionarios(nome,rg,cpf,email,senha,cargo, nivel_acesso,telefone,celular,cep,endereco,numero,complemento,bairro,cidade,estado) values(@nome,@rg,@cpf,@email,@senha,@cargo,@nivel_acesso,@telefone,@celular,@cep,@endereco,@numero,@complemento,@bairro,@cidade,@estado)";
 
                 // 2º passo - Organizar o cmd sql
                 MySqlCommand cmd = new MySqlCommand(sql, conexao);
-                cmd.Parameters.AddWithValue("@id",obj.ID);
                 cmd.Parameters.AddWithValue("@nome", obj.Nome);
                 cmd.Parameters.AddWithValue("@rg", obj.Rg);
                 cmd.Parameters.AddWithValue("@cpf", obj.Cpf);
                 cmd.Parameters.AddWithValue("@email", obj.Email);
+                cmd.Parameters.AddWithValue("@senha",obj.Senha);
+                cmd.Parameters.AddWithValue("@cargo",obj.Cargo);
+                cmd.Parameters.AddWithValue("@nivel_acesso",obj.Nivel_Acesso);
                 cmd.Parameters.AddWithValue("@telefone", obj.Telefone);
                 cmd.Parameters.AddWithValue("@celular", obj.Celular);
                 cmd.Parameters.AddWithValue("@cep", obj.Cep);
@@ -98,7 +46,49 @@ namespace Projeto_Controle_Vendas.Dao
                 conexao.Open();
                 cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Cliente alterado com sucesso!");
+                MessageBox.Show("Funcionário cadastrado com sucesso!");
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show("Erro ao cadastrar!! " + e.Message);
+            }
+            finally { conexao.Close(); }
+        }
+        #endregion
+
+        #region Alterar Funcionarios
+        public void Alterarfuncionario(Funcionario obj)
+        {
+            try
+            {
+                string sql = @"update tb_funcionarios
+                   set nome=@nome,rg=@rg,cpf=@cpf,email=@email,senha=@senha,cargo=@cargo,nivel_acesso=@nivel_acesso,telefone=@telefone,c elular=@celular,cep=@cep,endereco=@endereco,numero=@numero,complemento=@complemento,bairro=@bairro,cidade=@cidade,estado=@estado 
+                      where id=@id";
+
+                MySqlCommand cmd = new MySqlCommand(sql, conexao);
+                cmd.Parameters.AddWithValue("@id", obj.ID);
+                cmd.Parameters.AddWithValue("@nome", obj.Nome);
+                cmd.Parameters.AddWithValue("@rg", obj.Rg);
+                cmd.Parameters.AddWithValue("@cpf", obj.Cpf);
+                cmd.Parameters.AddWithValue("@email", obj.Email);
+                cmd.Parameters.AddWithValue("@senha",obj.Senha);
+                cmd.Parameters.AddWithValue("@cargo",obj.Cargo);
+                cmd.Parameters.AddWithValue("@nivel_acesso", obj.Nivel_Acesso);
+                cmd.Parameters.AddWithValue("@telefone", obj.Telefone);
+                cmd.Parameters.AddWithValue("@celular", obj.Celular);
+                cmd.Parameters.AddWithValue("@cep", obj.Cep);
+                cmd.Parameters.AddWithValue("@endereco", obj.Endereco);
+                cmd.Parameters.AddWithValue("@numero", obj.Numero);
+                cmd.Parameters.AddWithValue("@complemento", obj.Complemento);
+                cmd.Parameters.AddWithValue("@bairro", obj.Bairro);
+                cmd.Parameters.AddWithValue("@cidade", obj.Cidade);
+                cmd.Parameters.AddWithValue("@estado", obj.Estado);
+
+                conexao.Open();
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Funcionario alterado com sucesso!");
 
             }
             catch (Exception e)
@@ -106,25 +96,24 @@ namespace Projeto_Controle_Vendas.Dao
 
                 MessageBox.Show("Erro ao alterar: " + e.Message);
             }
+
             finally { conexao.Close(); }
         }
-
         #endregion
 
-        #region Excluir Cliente
-        public void ExcluirCliente(Cliente obj)
+        #region Excluir Funcionarios
+        public void ExcluirFuncionario(Funcionario obj)
         {
             try
             {
-                string sql = "delete from tb_clientes where id = @id";
+                string sql = "delete from tb_funcionarios where id = @id";
                 MySqlCommand cmd = new MySqlCommand(sql, conexao);
                 cmd.Parameters.AddWithValue("@id", obj.ID);
 
                 conexao.Open();
                 cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Cliente excluido com sucesso!");
-
+                MessageBox.Show("Funcionário excluido com sucesso!");
             }
             catch (Exception e)
             {
@@ -135,16 +124,16 @@ namespace Projeto_Controle_Vendas.Dao
         }
         #endregion
 
-        #region ListarClientes
-        public DataTable ListarClientes()
+        #region Listar Funcionarios
+        public DataTable ListarFuncionarios()
         {
             try
             {
                 DataTable dt = new DataTable();
-                string sql = "select * from tb_clientes";
+                string sql = "select * from tb_funcionarios";
 
                 // 2º passo - organizar o comando sql e executar
-                MySqlCommand executaCmd = new MySqlCommand(sql,conexao);
+                MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
 
                 conexao.Open();
                 executaCmd.ExecuteNonQuery();
@@ -156,7 +145,6 @@ namespace Projeto_Controle_Vendas.Dao
                 return dt;
 
             }
-            
 
             catch (Exception e)
             {
@@ -165,17 +153,51 @@ namespace Projeto_Controle_Vendas.Dao
                 return null;
             }
             finally { conexao.Close(); }
-            
+
         }
         #endregion
 
-        #region BuscarClienteNome
-        public DataTable BuscarClienteNome(string nome)
+        #region Buscar Funcionarios por nome
+        public DataTable BuscarFuncionariosNome(string nome)
         {
             try
             {
                 DataTable dt = new DataTable();
-                string sql = "select * from tb_clientes where nome like @nome";
+                string sql = "select * from tb_funcionarios where nome like @nome";
+
+                // 2º passo - organizar o comando sql e executar
+                MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
+                executaCmd.Parameters.AddWithValue("@nome", nome);
+
+                conexao.Open();
+                executaCmd.ExecuteNonQuery();
+
+                // 3º passo - Criar o DataAdapter p/ preencher os dados no DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executaCmd);
+                da.Fill(dt);
+
+                return dt;
+
+            }
+
+            catch (Exception e)
+            {
+
+                MessageBox.Show("Erro ao executar o comando sql" + e.Message);
+                return null;
+            }
+            finally { conexao.Close(); }
+
+        }
+        #endregion
+
+        #region ListarFuncionarioNome
+        public DataTable ListarFuncionarioNome(string nome)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string sql = "select * from tb_funcionarios where nome like @nome";
 
                 // 2º passo - organizar o comando sql e executar
                 MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
@@ -201,77 +223,6 @@ namespace Projeto_Controle_Vendas.Dao
             }
             finally { conexao.Close(); }
 
-        }
-        #endregion
-
-        #region ListarClienteNome
-        public DataTable ListarClienteNome(string nome)
-        {
-            try
-            {
-                DataTable dt = new DataTable();
-                string sql = "select * from tb_clientes where nome like @nome";
-
-                // 2º passo - organizar o comando sql e executar
-                MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
-                executaCmd.Parameters.AddWithValue("@nome", nome);
-
-                conexao.Open();
-                executaCmd.ExecuteNonQuery();
-
-                // 3º passo - Criar o DataAdapter p/ preencher os dados no DataTable
-                MySqlDataAdapter da = new MySqlDataAdapter(executaCmd);
-                da.Fill(dt);
-
-                return dt;
-
-            }
-
-
-            catch (Exception e)
-            {
-
-                MessageBox.Show("Erro ao executar o comando sql" + e.Message);
-                return null;
-            }
-            finally { conexao.Close(); }
-
-        }
-        #endregion
-
-        #region LimparTela
-        public void LimparTela(Form tela)
-        {
-            foreach (Control ctrPai in tela.Controls)
-            {
-                foreach (Control ctr1 in ctrPai.Controls)
-                {
-                    if (ctr1 is TabPage)
-                    {
-                        foreach (Control ctr2 in ctr1.Controls)
-                        {
-                            if (ctr2 is TextBox)
-                            {
-                                //Limpar o meu campo de texto
-                                (ctr2 as TextBox).Text = string.Empty;
-                            }
-
-                            if (ctr2 is MaskedTextBox)
-                            {
-                                //Limpar o meu campo de MaskedTextBox
-                                (ctr2 as MaskedTextBox).Text = string.Empty;
-                            }
-
-                            if (ctr2 is ComboBox)
-                            {
-                                //Limpar o meu campo ComboBox
-                                (ctr2 as ComboBox).Text =string.Empty;
-                            }
-                            
-                        }
-                    }
-                }
-            }
         }
         #endregion
     }
