@@ -1,13 +1,7 @@
 ﻿using Projeto_Controle_Vendas.Dao;
 using Projeto_Controle_Vendas.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Projeto_Controle_Vendas.Views
@@ -51,19 +45,7 @@ namespace Projeto_Controle_Vendas.Views
         //botão Novo
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            /*
-            txtCodigo.Clear();
-            txtCidade.Clear();
-            txtTelefone.Clear();
-            txtCelular.Clear();
-            txtCEP.Clear();
-            txtNome.Clear();
-            txtRG.Clear();
-            txtCPF.Clear();
-            txtComplemento.Clear();
-            txtNumero.Clear();
-            txtBairro.Clear();
-            */
+            
             new ClienteDAO().LimparTela(this);
             txtNome.Focus();
             
