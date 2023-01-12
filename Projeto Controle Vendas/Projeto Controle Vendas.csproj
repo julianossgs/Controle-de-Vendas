@@ -87,6 +87,7 @@
     <Compile Include="Conexao\ConnectionFactory.cs" />
     <Compile Include="Dao\ClienteDAO.cs" />
     <Compile Include="Dao\FuncionarioDAO.cs" />
+    <Compile Include="Methods.cs" />
     <Compile Include="Model\Cliente.cs" />
     <Compile Include="Model\Funcionario.cs" />
     <Compile Include="Program.cs" />

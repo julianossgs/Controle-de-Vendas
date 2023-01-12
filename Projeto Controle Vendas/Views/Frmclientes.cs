@@ -47,7 +47,7 @@ namespace Projeto_Controle_Vendas.Views
         private void btnNovo_Click(object sender, EventArgs e)
         {
             
-            new ClienteDAO().LimparTela(this);
+            new Methods().LimparTela(this);
             txtNome.Focus();
             
         }

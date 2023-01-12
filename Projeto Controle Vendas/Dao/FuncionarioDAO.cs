@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Projeto_Controle_Vendas.Dao
 {
-    internal class FuncionarioDAO
+    internal class FuncionarioDAO 
     {
         private MySqlConnection conexao;
 
@@ -157,8 +157,8 @@ namespace Projeto_Controle_Vendas.Dao
         }
         #endregion
 
-        #region Buscar Funcionarios por nome
-        public DataTable BuscarFuncionariosNome(string nome)
+        #region Listar Funcionarios por nome
+        public DataTable ListarFuncionariosNome(string nome)
         {
             try
             {
@@ -191,8 +191,8 @@ namespace Projeto_Controle_Vendas.Dao
         }
         #endregion
 
-        #region ListarFuncionarioNome
-        public DataTable ListarFuncionarioNome(string nome)
+        #region BuscarFuncionarioNome
+        public DataTable BuscarFuncionarioNome(string nome)
         {
             try
             {

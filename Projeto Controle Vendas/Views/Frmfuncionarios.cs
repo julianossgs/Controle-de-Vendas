@@ -1,6 +1,7 @@
 ﻿using Projeto_Controle_Vendas.Dao;
 using Projeto_Controle_Vendas.Model;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace Projeto_Controle_Vendas.Views
@@ -14,7 +15,8 @@ namespace Projeto_Controle_Vendas.Views
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-
+            new Methods().LimparTela(this);
+            txtNome.Focus();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -27,16 +29,16 @@ namespace Projeto_Controle_Vendas.Views
                 Email= txtEmail.Text,
                 Senha= txtSenha.Text,
                 Nivel_Acesso = cbNivel.SelectedItem.ToString(),
-                Cargo = cbNivel.SelectedItem.ToString(),
+                Cargo = cbCargo.SelectedItem.ToString(),
                 Telefone= txtTelefone.Text,
                 Celular= txtCelular.Text,
                 Cep=txtCEP.Text,
-                Endereco= txtCEP.Text,
+                Endereco= txtEndereco.Text,
                 Numero=int.Parse(txtNumero.Text),
                 Complemento=txtComplemento.Text,
                 Bairro=txtBairro.Text,
                 Cidade=txtCidade.Text,
-                Estado = cbUF.Text
+                Estado = cbUF.SelectedItem.ToString(),
             };
 
             FuncionarioDAO funcionarioDAO = new FuncionarioDAO();   
@@ -49,22 +51,23 @@ namespace Projeto_Controle_Vendas.Views
         {
             Funcionario obj = new Funcionario
             {
+                ID = int.Parse(txtCodigo.Text),
                 Nome = txtNome.Text,
                 Rg = txtRG.Text,
                 Cpf = txtCPF.Text,
                 Email= txtEmail.Text,
                 Senha= txtSenha.Text,
                 Nivel_Acesso = cbNivel.SelectedItem.ToString(),
-                Cargo = cbNivel.SelectedItem.ToString(),
+                Cargo = cbCargo.SelectedItem.ToString(),
                 Telefone= txtTelefone.Text,
                 Celular= txtCelular.Text,
                 Cep=txtCEP.Text,
-                Endereco= txtCEP.Text,
+                Endereco= txtEndereco.Text,
                 Numero=int.Parse(txtNumero.Text),
                 Complemento=txtComplemento.Text,
                 Bairro=txtBairro.Text,
                 Cidade=txtCidade.Text,
-                Estado = cbUF.Text
+                Estado = cbUF.Text,
             };
             FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
             funcionarioDAO.Alterarfuncionario(obj);
@@ -86,7 +89,27 @@ namespace Projeto_Controle_Vendas.Views
 
         private void btPesquisarAPI_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string cep = txtCEP.Text;
+                string xml = "https://viacep.com.br/ws/"+cep+"/xml/";
 
+                DataSet dados = new DataSet();
+                dados.ReadXml(xml);
+
+                txtEndereco.Text = dados.Tables[0].Rows[0]["logradouro"].ToString();
+                txtBairro.Text = dados.Tables[0].Rows[0]["bairro"].ToString();
+                txtCidade.Text = dados.Tables[0].Rows[0]["localidade"].ToString();
+                txtComplemento.Text = dados.Tables[0].Rows[0]["complemento"].ToString();
+                cbUF.Text = dados.Tables[0].Rows[0]["uf"].ToString();
+
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Endereço não encontrado!!! ");
+            }
         }
 
         private void Frmfuncionarios_Load(object sender, EventArgs e)
@@ -101,27 +124,19 @@ namespace Projeto_Controle_Vendas.Views
             string nome = "%" + txtPesquisa.Text + "%";
             FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 
-            if (txtPesquisa.Text == null || txtPesquisa.Text == string.Empty)
-            {
-                MessageBox.Show("Informe um nome para a pesquisa!");
-                txtPesquisa.Focus();
-                gridFuncionario.DataSource = funcionarioDAO.ListarFuncionarios();
-                return;
-
-            }
-
-            if (gridFuncionario.Rows.Count == 0)
+            if (gridFuncionario.Rows.Count == 0 || txtPesquisa.Text == string.Empty)
             {
                 MessageBox.Show("Funcionário não encontrado!");
                 txtPesquisa.Focus();
                 gridFuncionario.DataSource = funcionarioDAO.ListarFuncionarios();
                 return;
+
             }
 
             else
             {
 
-                gridFuncionario.DataSource = funcionarioDAO.BuscarFuncionariosNome(nome);
+                gridFuncionario.DataSource = funcionarioDAO.ListarFuncionariosNome(nome);
             }
 
         }
@@ -131,7 +146,7 @@ namespace Projeto_Controle_Vendas.Views
             string nome = "%" + txtPesquisa.Text + "%";
             FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 
-            gridFuncionario.DataSource = funcionarioDAO.ListarFuncionarioNome(nome);
+            gridFuncionario.DataSource = funcionarioDAO.ListarFuncionariosNome(nome);
 
             if (gridFuncionario.Rows.Count == 0)
             {
