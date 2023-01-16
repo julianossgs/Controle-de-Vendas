@@ -130,7 +130,7 @@ namespace Projeto_Controle_Vendas.Dao
             try
             {
                 DataTable dt = new DataTable();
-                string sql = "select * from tb_funcionarios";
+                string sql = "select * from tb_funcionarios order by nome asc";
 
                 // 2º passo - organizar o comando sql e executar
                 MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
