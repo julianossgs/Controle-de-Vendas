@@ -33,3 +33,4 @@ C:\Users\Juliano\Desktop\PROJETOS DESKTOP\Controle de Vendas com C# e MySql\Proj
 C:\Users\Juliano\Desktop\PROJETOS DESKTOP\Controle de Vendas com C# e MySql\Projeto Controle Vendas\obj\Debug\Projeto Controle Vendas.exe
 C:\Users\Juliano\Desktop\PROJETOS DESKTOP\Controle de Vendas com C# e MySql\Projeto Controle Vendas\obj\Debug\Projeto Controle Vendas.pdb
 C:\Users\Juliano\Desktop\PROJETOS DESKTOP\Controle de Vendas com C# e MySql\Projeto Controle Vendas\obj\Debug\Projeto_Controle_Vendas.Views.Frmfuncionarios.resources
+C:\Users\Juliano\Desktop\PROJETOS DESKTOP\Controle de Vendas com C# e MySql\Projeto Controle Vendas\obj\Debug\Projeto_Controle_Vendas.Views.Frmfornecedores.resources
