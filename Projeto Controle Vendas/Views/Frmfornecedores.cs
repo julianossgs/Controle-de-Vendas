@@ -1,17 +1,8 @@
-﻿using MySqlX.XDevAPI;
-using Projeto_Controle_Vendas.Dao;
+﻿using Projeto_Controle_Vendas.Dao;
 using Projeto_Controle_Vendas.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.LinkLabel;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Projeto_Controle_Vendas.Views
 {
@@ -143,16 +134,25 @@ namespace Projeto_Controle_Vendas.Views
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            string nome = "%" + txtPesquisa.Text + "%";
+            string nome = txtPesquisa.Text;
             FornecedorDAO fornecedorDAO = new FornecedorDAO();
 
-            if (txtPesquisa.Text == string.Empty || gridFornecedores.Rows.Count == 0)
+            if (txtPesquisa.Text == string.Empty)
             {
                 MessageBox.Show("Informe um nome para a pesquisa!");
                 txtPesquisa.Focus();
                 gridFornecedores.DataSource = fornecedorDAO.BuscarFornecedorNome(nome);
                 return;
 
+            }
+
+            if (gridFornecedores.Rows.Count == 0)
+            {
+                MessageBox.Show("Fornecedor não encontrado!");
+                txtPesquisa.Clear();
+                txtPesquisa.Focus();
+                gridFornecedores.DataSource = fornecedorDAO.ListarFornecedores();
+                return;
             }
 
             else

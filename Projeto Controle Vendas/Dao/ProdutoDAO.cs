@@ -51,7 +51,10 @@ namespace Projeto_Controle_Vendas.Dao
         {
             try
             {
-                string sql = "update tb_produtos set descricao=@descricao,preco=@preco,qtd_estoque=@qtd_estoque,for_id=@for_id where id=@id";
+                string sql = @"update tb_produtos 
+                                set descricao=@descricao,preco=@preco,
+                                qtd_estoque=@qtd_estoque,
+                                for_id=@for_id where id=@id";
 
                 // 2º passo - Organizar o cmd sql
                 MySqlCommand cmd = new MySqlCommand(sql, conexao);
@@ -134,6 +137,91 @@ namespace Projeto_Controle_Vendas.Dao
                 return dt;
 
             }
+
+            catch (Exception e)
+            {
+
+                MessageBox.Show("Erro ao executar o comando sql" + e.Message);
+                return null;
+            }
+            finally { conexao.Close(); }
+
+        }
+        #endregion
+
+        #region Listar Fornecedores Nome
+        public DataTable ListarProdutosNome(string nome)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string sql = @"select p.id,
+                                      p.descricao as 'Descrição',
+                                      p.preco as 'Preço',
+                                      p.qtd_estoque as 'Qtd Estoque',
+                                      f.nome as 'Fornecedor'
+                                      from tb_produtos p
+                                      inner join tb_fornecedores f
+                                      on p.for_id = f.id 
+                                      where p.descricao like @nome;";
+
+                // 2º passo - organizar o comando sql e executar
+                MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
+                executaCmd.Parameters.AddWithValue("@nome", nome);
+
+                conexao.Open();
+                executaCmd.ExecuteNonQuery();
+
+                // 3º passo - Criar o DataAdapter p/ preencher os dados no DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executaCmd);
+                da.Fill(dt);
+
+                return dt;
+
+            }
+
+            catch (Exception e)
+            {
+
+                MessageBox.Show("Erro ao executar o comando sql" + e.Message);
+                return null;
+            }
+            finally { conexao.Close(); }
+
+        }
+        #endregion
+
+        #region Buscar Produto por Nome
+        public DataTable BuscarProdutoNome(string nome)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                string sql = @"select p.id,
+                                      p.descricao as 'Descrição',
+                                      p.preco as 'Preço',
+                                      p.qtd_estoque as 'Qtd Estoque',
+                                      f.nome as 'Fornecedor'
+                                      from tb_produtos p
+                                      inner join tb_fornecedores f
+                                      on p.for_id = f.id 
+                                      where p.descricao = @nome;";
+
+                // 2º passo - organizar o comando sql e executar
+                MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
+                executaCmd.Parameters.AddWithValue("@nome", nome);
+
+                conexao.Open();
+                executaCmd.ExecuteNonQuery();
+
+                // 3º passo - Criar o DataAdapter p/ preencher os dados no DataTable
+                MySqlDataAdapter da = new MySqlDataAdapter(executaCmd);
+                da.Fill(dt);
+
+                return dt;
+
+            }
+
 
             catch (Exception e)
             {

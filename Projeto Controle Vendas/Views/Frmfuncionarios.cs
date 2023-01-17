@@ -121,16 +121,25 @@ namespace Projeto_Controle_Vendas.Views
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            string nome = "%" + txtPesquisa.Text + "%";
+            string nome = txtPesquisa.Text;
             FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 
-            if (gridFuncionario.Rows.Count == 0 || txtPesquisa.Text == string.Empty)
+            if (txtPesquisa.Text == string.Empty)
             {
                 MessageBox.Show("Funcionário não encontrado!");
                 txtPesquisa.Focus();
                 gridFuncionario.DataSource = funcionarioDAO.ListarFuncionarios();
                 return;
 
+            }
+
+            if (gridFuncionario.Rows.Count == 0)
+            {
+                MessageBox.Show("Funcionário não encontrado!");
+                txtPesquisa.Clear();
+                txtPesquisa.Focus();
+                gridFuncionario.DataSource = funcionarioDAO.ListarFuncionarios();
+                return;
             }
 
             else

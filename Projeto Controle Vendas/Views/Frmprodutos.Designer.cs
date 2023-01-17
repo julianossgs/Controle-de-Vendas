@@ -292,6 +292,7 @@
             this.gridProdutos.ReadOnly = true;
             this.gridProdutos.Size = new System.Drawing.Size(828, 312);
             this.gridProdutos.TabIndex = 30;
+            this.gridProdutos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProdutos_CellClick);
             // 
             // btnPesquisar
             // 

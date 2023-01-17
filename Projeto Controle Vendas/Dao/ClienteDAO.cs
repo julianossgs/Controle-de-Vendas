@@ -170,7 +170,7 @@ namespace Projeto_Controle_Vendas.Dao
             try
             {
                 DataTable dt = new DataTable();
-                string sql = "select * from tb_clientes where nome like @nome";
+                string sql = "select * from tb_clientes where nome = @nome";
 
                 // 2º passo - organizar o comando sql e executar
                 MySqlCommand executaCmd = new MySqlCommand(sql, conexao);

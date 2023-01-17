@@ -152,7 +152,9 @@ namespace Projeto_Controle_Vendas.Dao
             try
             {
                 DataTable dt = new DataTable();
-                string sql = "select * from tb_fornecedores where nome like @nome";
+                string sql = @"select * from tb_fornecedores 
+                               where nome like @nome
+                               order by nome asc";
 
                 // 2º passo - organizar o comando sql e executar
                 MySqlCommand executaCmd = new MySqlCommand(sql, conexao);

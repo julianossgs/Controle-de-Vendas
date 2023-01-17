@@ -129,7 +129,7 @@ namespace Projeto_Controle_Vendas.Views
             string nome = "%" + txtPesquisa.Text + "%";
             ClienteDAO clienteDAO = new ClienteDAO();
 
-            if (txtPesquisa.Text == null || txtPesquisa.Text == string.Empty)
+            if (txtPesquisa.Text == string.Empty)
             {
                 MessageBox.Show("Informe um nome para a pesquisa!");
                 txtPesquisa.Focus();
@@ -141,6 +141,7 @@ namespace Projeto_Controle_Vendas.Views
             if (gridCliente.Rows.Count == 0)
             {
                 MessageBox.Show("Cliente não encontrado!");
+                txtPesquisa.Clear();
                 txtPesquisa.Focus();
                 gridCliente.DataSource = clienteDAO.ListarClientes();
                 return;
@@ -152,23 +153,14 @@ namespace Projeto_Controle_Vendas.Views
                 gridCliente.DataSource = clienteDAO.BuscarClienteNome(nome);
             }
 
-           
         }
 
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
         {
-            string nome = "%" + txtPesquisa.Text + "%";
+            string nome = txtPesquisa.Text;
             ClienteDAO clienteDAO = new ClienteDAO();
 
-            gridCliente.DataSource = clienteDAO.ListarClienteNome(nome);
-
-            if (gridCliente.Rows.Count == 0)
-            {
-                MessageBox.Show("Cliente não encontrado!");
-                txtPesquisa.Focus();
-                gridCliente.DataSource = clienteDAO.ListarClientes();
-                return;
-            }
+            gridCliente.DataSource = clienteDAO.BuscarClienteNome(nome);
 
         }
 
