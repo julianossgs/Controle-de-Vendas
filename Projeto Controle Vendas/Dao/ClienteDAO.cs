@@ -234,6 +234,53 @@ namespace Projeto_Controle_Vendas.Dao
         }
         #endregion
 
-        
+        #region Método que retorna cliente por CPF
+        public Cliente RetornaCpf(string cpf)
+        {
+            try
+            {
+                //1º passo - Criar o comando sql e o objeto Cliente
+                Cliente cliente = new Cliente();
+                string sql = @"select * from tb_clientes where cpf = @cpf";
+
+                // 2º passo -Organizar o comando sql e executar
+                MySqlCommand cmd = new MySqlCommand(sql, conexao);
+                cmd.Parameters.AddWithValue("@cpf", cpf);
+
+                conexao.Open();
+
+                //Data reader
+                MySqlDataReader reader= cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    cliente.ID = reader.GetInt32("id");
+                    cliente.Nome = reader.GetString("nome");
+                    return cliente;
+                }
+
+                else
+                {
+                    MessageBox.Show("Cliente não encontrado");
+                    return null;
+                }
+
+
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show("Aconteceu um erro: " + e.Message);
+                return null;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+           
+        }
+        #endregion
+
+
     }
 }

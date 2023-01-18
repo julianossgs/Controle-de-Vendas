@@ -233,5 +233,51 @@ namespace Projeto_Controle_Vendas.Dao
 
         }
         #endregion
+
+        #region Método que retorna um produto por código
+        public Produto RetornaProdutoId(int id)
+        {
+            try
+            {
+                //1º passo - Criar o comando sql e o objeto Produto
+                Produto produto = new Produto();
+                string sql = @"select * from tb_produtos where id = @id";
+
+                // 2º passo -Organizar o comando sql e executar
+                MySqlCommand cmd = new MySqlCommand(sql, conexao);
+                cmd.Parameters.AddWithValue("@id", id);
+
+                conexao.Open();
+
+                // 3º passo - Criar o Data reader
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    produto.Id = reader.GetInt32("id");
+                    produto.Descricao = reader.GetString("descricao");
+                    produto.Preco = reader.GetDecimal("preco");
+                    return produto;
+                }
+
+                else
+                {
+                    MessageBox.Show("Produto não encontrado com esse código");
+                    return null;
+                }
+
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show("Aconteceu um erro: " + e.Message);
+                return null;
+            }
+            finally 
+            { 
+                conexao.Close(); 
+            }
+        }
+        #endregion
     }
 }
