@@ -1,13 +1,7 @@
 ﻿using Projeto_Controle_Vendas.Dao;
 using Projeto_Controle_Vendas.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Projeto_Controle_Vendas.Views
@@ -56,6 +50,13 @@ namespace Projeto_Controle_Vendas.Views
         //botão Remover item
         private void btnRemoverItem_Click(object sender, EventArgs e)
         {
+            if (txtCodigo.Text == string.Empty )
+            {
+                MessageBox.Show("Não há item a ser removido!");
+                txtCodigo.Focus();
+                return;
+            }
+
             try
             {
                 decimal subproduto = decimal.Parse(gridVendas.CurrentRow.Cells[4].Value.ToString());
@@ -75,30 +76,72 @@ namespace Projeto_Controle_Vendas.Views
             catch (Exception)
             {
 
-                MessageBox.Show("Erro ao remover item: ");
+                MessageBox.Show("Erro!! Informe o código do item a ser removido! ");
+            }
+        }
+
+        //botão Pagamento
+        private void btnPagto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Frmpagto tela = new Frmpagto(cliente,carrinho);
+
+                //passando o total p/ a tela de pagamentos
+                tela.txtTotal.Text = total.ToString();
+                tela.ShowDialog();
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 
         //botão add itens
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-            qtd = int.Parse(txtQtdEstoque.Text);
-            preco = decimal.Parse(txtPreco.Text);
+            if (txtNome.Text == string.Empty)
+            {
+                MessageBox.Show("Informe o CPF do Cliente!!");
+                txtCPF.Focus();
+                return;
+            }
 
-            subtotal = qtd * preco;//calculando o subtotal
-            total += subtotal;//calculando o total
+            if (txtCodigo.Text == string.Empty)
+            {
+                MessageBox.Show("Informe o Código do Produto!!");
+                txtCodigo.Focus();
+                return;
+                
+            }
 
-            //add o produto no carrinho
-            carrinho.Rows.Add(int.Parse(txtCodigo.Text),this.txtDescricao.Text,qtd,preco,subtotal);
-            txtTotal.Text = total.ToString();   
+            try
+            {
+                qtd = int.Parse(txtQtdEstoque.Text);
+                preco = decimal.Parse(txtPreco.Text);
 
-            //Limpar campos
-            txtCodigo.Clear();
-            txtDescricao.Clear();
-            txtQtdEstoque.Clear();
-            txtPreco.Clear();
+                subtotal = qtd * preco;//calculando o subtotal
+                total += subtotal;//calculando o total
 
-            txtCodigo.Focus();
+                //add o produto no carrinho
+                carrinho.Rows.Add(int.Parse(txtCodigo.Text), this.txtDescricao.Text, qtd, preco, subtotal);
+                txtTotal.Text = total.ToString();
+
+                //Limpar campos
+                txtCodigo.Clear();
+                txtDescricao.Clear();
+                txtQtdEstoque.Clear();
+                txtPreco.Clear();
+
+                txtCodigo.Focus();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Erro ao adicionar itens: ");
+            }
+           
         }
 
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)

@@ -2,7 +2,7 @@
 
 namespace Projeto_Controle_Vendas.Model
 {
-    internal class Venda
+    public class Venda
     {
         public int Id { get; set; }
         public int Cliente_Id { get; set; }

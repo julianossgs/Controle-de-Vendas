@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projeto_Controle_Vendas.Model
 {
-    internal class Funcionario : Cliente
+    public class Funcionario : Cliente
     {
         public string Senha { get; set; }
         public string Cargo { get; set; }

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Projeto_Controle_Vendas.Model
 {
-    internal class Cliente
+    public class Cliente
     {
         public int ID { get; set; }
         public string Nome { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace Projeto_Controle_Vendas.Model
 {
-    internal class Produto
+    public class Produto
     {
         public int Id { get; set; }
         public string Descricao { get; set; }

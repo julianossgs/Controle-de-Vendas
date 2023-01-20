@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projeto_Controle_Vendas.Model
 {
-    internal class Fornecedor : Cliente
+    public class Fornecedor : Cliente
     {
         public string CNPJ { get; set; }
 

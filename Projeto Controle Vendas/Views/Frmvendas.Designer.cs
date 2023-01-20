@@ -336,6 +336,7 @@
             this.btnPagto.TabIndex = 33;
             this.btnPagto.Text = "Pagamento";
             this.btnPagto.UseVisualStyleBackColor = false;
+            this.btnPagto.Click += new System.EventHandler(this.btnPagto_Click);
             // 
             // txtTotal
             // 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projeto_Controle_Vendas.Model
 {
-    internal class ItemVenda
+    public class ItemVenda
     {
         public int Id { get; set; }
         public int Venda_Id { get; set; }
