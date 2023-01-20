@@ -60,7 +60,7 @@ namespace Projeto_Controle_Vendas.Views
             {
                 decimal subproduto = decimal.Parse(gridVendas.CurrentRow.Cells[4].Value.ToString());
 
-                int indice = gridVendas.CurrentRow.Index;
+                int indice = gridVendas.CurrentRow.Index;//pegando o indíce da linha a ser removida
                 DataRow linha = carrinho.Rows[indice];
 
                 carrinho.Rows.RemoveAt(indice);
@@ -85,8 +85,8 @@ namespace Projeto_Controle_Vendas.Views
             qtd = int.Parse(txtQtdEstoque.Text);
             preco = decimal.Parse(txtPreco.Text);
 
-            subtotal = qtd * preco;
-            total += subtotal;
+            subtotal = qtd * preco;//calculando o subtotal
+            total += subtotal;//calculando o total
 
             //add o produto no carrinho
             carrinho.Rows.Add(int.Parse(txtCodigo.Text),this.txtDescricao.Text,qtd,preco,subtotal);
