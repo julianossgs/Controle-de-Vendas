@@ -50,12 +50,14 @@ namespace Projeto_Controle_Vendas.Views
         //botão Remover item
         private void btnRemoverItem_Click(object sender, EventArgs e)
         {
+            /*
             if (txtCodigo.Text == string.Empty )
             {
                 MessageBox.Show("Não há item a ser removido!");
                 txtCodigo.Focus();
                 return;
             }
+            */
 
             try
             {
@@ -85,7 +87,8 @@ namespace Projeto_Controle_Vendas.Views
         {
             try
             {
-                Frmpagto tela = new Frmpagto(cliente,carrinho);
+                DateTime dataAtual = dtVenda.Value;
+                Frmpagto tela = new Frmpagto(cliente,carrinho,dataAtual);
 
                 //passando o total p/ a tela de pagamentos
                 tela.txtTotal.Text = total.ToString();
@@ -94,8 +97,14 @@ namespace Projeto_Controle_Vendas.Views
             catch (Exception)
             {
 
-                throw;
+                MessageBox.Show("Erro ao efetuar o pagamento!");
             }
+        }
+
+        private void Frmvendas_Load(object sender, EventArgs e)
+        {
+            //Pegando a data atual
+            dtVenda.Value = DateTime.Now;
         }
 
         //botão add itens

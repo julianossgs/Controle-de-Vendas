@@ -375,6 +375,7 @@
             this.Name = "Frmvendas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela de Vendas";
+            this.Load += new System.EventHandler(this.Frmvendas_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.gbCliente.ResumeLayout(false);
