@@ -88,6 +88,7 @@
     <Compile Include="Dao\ClienteDAO.cs" />
     <Compile Include="Dao\FornecedorDAO.cs" />
     <Compile Include="Dao\FuncionarioDAO.cs" />
+    <Compile Include="Dao\ItemVendaDAO.cs" />
     <Compile Include="Dao\ProdutoDAO.cs" />
     <Compile Include="Dao\VendaDAO.cs" />
     <Compile Include="Methods.cs" />
