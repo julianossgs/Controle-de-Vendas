@@ -279,5 +279,20 @@ namespace Projeto_Controle_Vendas.Dao
             }
         }
         #endregion
+
+        #region Método que baixa estoque
+        public void BaixaEstoque(int idproduto,int qtdestoque)
+        {
+            try
+            {
+                string sql =@"update tb_produtos set qtd_estoque = @qtd where id=@id" ;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        #endregion
     }
 }

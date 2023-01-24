@@ -32,7 +32,7 @@ namespace Projeto_Controle_Vendas.Dao
                 conexao.Open(); 
                 cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Venda cadastrada com sucesso!");
+               // MessageBox.Show("Venda cadastrada com sucesso!");
             }
             catch (Exception e)
             {

@@ -261,7 +261,7 @@ namespace Projeto_Controle_Vendas.Dao
 
                 else
                 {
-                    MessageBox.Show("Cliente não encontrado");
+                    MessageBox.Show("Cliente não encontrado!!");
                     return null;
                 }
 

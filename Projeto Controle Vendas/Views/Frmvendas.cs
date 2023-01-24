@@ -43,7 +43,17 @@ namespace Projeto_Controle_Vendas.Views
             if (e.KeyChar == 13)//o número 13 representa a tecla enter do teclado
             {
                 cliente = clienteDAO.RetornaCpf(txtCPF.Text);
-                txtNome.Text = cliente.Nome;
+                
+                if (cliente != null)
+                {
+                    txtNome.Text = cliente.Nome;
+                }
+                else
+                {
+                    
+                    txtCPF.Clear();
+                    txtCPF.Focus();
+                }
             }
         }
 
@@ -157,9 +167,22 @@ namespace Projeto_Controle_Vendas.Views
         {
             if (e.KeyChar == 13)
             {
+
                 produto = produtoDAO.RetornaProdutoId(int.Parse(txtCodigo.Text));
-                this.txtDescricao.Text = produto.Descricao;
-                this.txtPreco.Text = produto.Preco.ToString();
+                if (produto != null)
+                {
+                    
+                    this.txtDescricao.Text = produto.Descricao;
+                    this.txtPreco.Text = produto.Preco.ToString();
+                }
+
+
+                else
+                {
+                    txtCodigo.Clear();
+                    txtCodigo.Focus();
+                }
+               
             }
         }
     }
