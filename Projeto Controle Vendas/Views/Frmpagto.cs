@@ -10,6 +10,7 @@ namespace Projeto_Controle_Vendas.Views
     {
         Cliente cliente = new Cliente();
         DataTable carrinho = new DataTable();
+        ProdutoDAO dao_produto = new ProdutoDAO();
         DateTime DataAtual;
         
         public Frmpagto(Cliente cliente,DataTable carrinho,DateTime dataAtual)
@@ -35,6 +36,9 @@ namespace Projeto_Controle_Vendas.Views
             try
             {
                 decimal v_dinheiro, v_cartao, troco, total_pago,total;
+
+                int qtd_estoque, qtd_comprada, estoque_atualizado;
+
                 v_dinheiro = decimal.Parse(txtDinheiro.Text);
                 v_cartao = decimal.Parse(txtCartao.Text);
                 total = decimal.Parse(txtTotal.Text);   
@@ -73,6 +77,13 @@ namespace Projeto_Controle_Vendas.Views
                         item.Produto_Id = int.Parse(linha["Codigo"].ToString());
                         item.Qtd = int.Parse(linha["Qtd"].ToString());
                         item.SubTotal = decimal.Parse(linha["SubTotal"].ToString());
+
+                        //Baixa no estoque
+                        qtd_estoque = dao_produto.RetornaEstoqueAtual(item.Produto_Id);
+                        qtd_comprada = item.Qtd;
+                        estoque_atualizado = qtd_estoque - qtd_comprada;
+
+                        dao_produto.BaixaEstoque(item.Produto_Id,estoque_atualizado);
 
                         ItemVendaDAO itemDAO = new ItemVendaDAO();
                         itemDAO.CadastrarItem(item);

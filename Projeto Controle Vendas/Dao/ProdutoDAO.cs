@@ -286,12 +286,49 @@ namespace Projeto_Controle_Vendas.Dao
             try
             {
                 string sql =@"update tb_produtos set qtd_estoque = @qtd where id=@id" ;
+                MySqlCommand cmd = new MySqlCommand(sql,conexao);
+                cmd.Parameters.AddWithValue("@qtd",qtdestoque);
+                cmd.Parameters.AddWithValue("@id",idproduto);
+                conexao.Open();
+                cmd.ExecuteNonQuery();  
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                MessageBox.Show("Aconteceu um erro: " + e.Message);
             }
+            finally { conexao.Close(); }
+        }
+        #endregion
+
+        #region Método que retorna o estoque atual de um produto
+        public int RetornaEstoqueAtual(int idproduto)
+        {
+            try
+            {
+                int qtd_estoque = 0;
+                string sql =@"select qtd_estoque from tb_produtos where id = @id";
+                MySqlCommand cmd = new MySqlCommand(sql,conexao);
+                cmd.Parameters.AddWithValue("@id",idproduto);
+
+                conexao.Open();
+
+                MySqlDataReader reader= cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    qtd_estoque = reader.GetInt32("qtd_estoque");
+                }
+
+                return qtd_estoque;
+
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show("Aconteceu um erro: " + e.Message);
+                return 0;
+            }
+            finally { conexao.Close(); }
         }
         #endregion
     }
