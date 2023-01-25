@@ -21,6 +21,19 @@ namespace Projeto_Controle_Vendas.Views
             gridRelVendas.DefaultCellStyle.ForeColor = Color.Black;
         }
 
+        //pegando os dados do histórico de vendas e passando p/ os detalhes da venda
+        private void gridRelVendas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //1º - passo abrir um outro formulário
+            Frmdetalhe tela = new Frmdetalhe();
+            //tela.ShowDialog();
+
+            tela.txtData.Text = gridRelVendas.CurrentRow.Cells[1].ToString();
+            tela.txtCliente.Text = gridRelVendas.CurrentRow.Cells[2].Value.ToString();
+            tela.txtTotal.Text = gridRelVendas.CurrentRow.Cells[3].Value.ToString();
+            tela.txtObs.Text = gridRelVendas.CurrentRow.Cells[4].Value.ToString();
+        }
+
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             if (gridRelVendas.Rows.Count == 0)
