@@ -108,6 +108,7 @@ namespace Projeto_Controle_Vendas.Dao
 
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 da.Fill(gridHistorico);
+
                 return gridHistorico;
             }
             catch (Exception e)
@@ -149,7 +150,9 @@ namespace Projeto_Controle_Vendas.Dao
 
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 da.Fill(gridHistorico);
+
                 return gridHistorico;
+
             }
             catch (Exception e)
             {
@@ -160,7 +163,9 @@ namespace Projeto_Controle_Vendas.Dao
             finally
             {
                 conexao.Close();
+                
             }
+            
         }
         #endregion
     }

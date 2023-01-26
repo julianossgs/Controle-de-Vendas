@@ -37,11 +37,6 @@
             this.dtFim = new System.Windows.Forms.DateTimePicker();
             this.dtInicio = new System.Windows.Forms.DateTimePicker();
             this.gridRelVendas = new System.Windows.Forms.DataGridView();
-            this.colCod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDataVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colObs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.gbHistoricoVendas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridRelVendas)).BeginInit();
@@ -138,55 +133,14 @@
             this.gridRelVendas.AllowUserToDeleteRows = false;
             this.gridRelVendas.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.gridRelVendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridRelVendas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colCod,
-            this.colDataVenda,
-            this.colCliente,
-            this.colTotal,
-            this.colObs});
-            this.gridRelVendas.Location = new System.Drawing.Point(25, 180);
+            this.gridRelVendas.Location = new System.Drawing.Point(51, 180);
             this.gridRelVendas.Name = "gridRelVendas";
             this.gridRelVendas.ReadOnly = true;
             this.gridRelVendas.RowHeadersWidth = 50;
             this.gridRelVendas.RowTemplate.Height = 30;
-            this.gridRelVendas.Size = new System.Drawing.Size(973, 317);
+            this.gridRelVendas.Size = new System.Drawing.Size(937, 317);
             this.gridRelVendas.TabIndex = 0;
             this.gridRelVendas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridRelVendas_CellClick);
-            // 
-            // colCod
-            // 
-            this.colCod.HeaderText = "Código";
-            this.colCod.Name = "colCod";
-            this.colCod.ReadOnly = true;
-            this.colCod.Width = 60;
-            // 
-            // colDataVenda
-            // 
-            this.colDataVenda.HeaderText = "Data da Venda";
-            this.colDataVenda.Name = "colDataVenda";
-            this.colDataVenda.ReadOnly = true;
-            this.colDataVenda.Width = 120;
-            // 
-            // colCliente
-            // 
-            this.colCliente.HeaderText = "Cliente";
-            this.colCliente.Name = "colCliente";
-            this.colCliente.ReadOnly = true;
-            this.colCliente.Width = 300;
-            // 
-            // colTotal
-            // 
-            this.colTotal.HeaderText = "Total";
-            this.colTotal.Name = "colTotal";
-            this.colTotal.ReadOnly = true;
-            this.colTotal.Width = 130;
-            // 
-            // colObs
-            // 
-            this.colObs.HeaderText = "Obs";
-            this.colObs.Name = "colObs";
-            this.colObs.ReadOnly = true;
-            this.colObs.Width = 300;
             // 
             // Frmhistorico
             // 
@@ -220,10 +174,5 @@
         private System.Windows.Forms.DateTimePicker dtFim;
         private System.Windows.Forms.DateTimePicker dtInicio;
         private System.Windows.Forms.Button btnPesquisar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCod;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDataVenda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colObs;
     }
 }

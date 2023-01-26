@@ -33,6 +33,7 @@
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.gbDetalhesVenda = new System.Windows.Forms.GroupBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.txtObs = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
@@ -89,6 +90,7 @@
             // 
             // gbDetalhesVenda
             // 
+            this.gbDetalhesVenda.Controls.Add(this.txtCodigo);
             this.gbDetalhesVenda.Controls.Add(this.txtObs);
             this.gbDetalhesVenda.Controls.Add(this.txtCliente);
             this.gbDetalhesVenda.Controls.Add(this.label5);
@@ -104,6 +106,16 @@
             this.gbDetalhesVenda.TabIndex = 0;
             this.gbDetalhesVenda.TabStop = false;
             this.gbDetalhesVenda.Text = "Detalhes da Venda";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Location = new System.Drawing.Point(797, 190);
+            this.txtCodigo.MaxLength = 5;
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(100, 26);
+            this.txtCodigo.TabIndex = 0;
+            this.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCodigo.Visible = false;
             // 
             // txtObs
             // 
@@ -179,7 +191,7 @@
             this.gridDetalheVendas.Name = "gridDetalheVendas";
             this.gridDetalheVendas.ReadOnly = true;
             this.gridDetalheVendas.RowTemplate.Height = 28;
-            this.gridDetalheVendas.Size = new System.Drawing.Size(918, 176);
+            this.gridDetalheVendas.Size = new System.Drawing.Size(918, 205);
             this.gridDetalheVendas.TabIndex = 0;
             this.gridDetalheVendas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDetalheVendas_CellClick);
             // 
@@ -187,13 +199,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 523);
+            this.ClientSize = new System.Drawing.Size(942, 552);
             this.Controls.Add(this.gridDetalheVendas);
             this.Controls.Add(this.gbDetalhesVenda);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Frmdetalhe";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Frmdetalhe";
+            this.Text = "Detalhes da Venda";
+            this.Load += new System.EventHandler(this.Frmdetalhe_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.gbDetalhesVenda.ResumeLayout(false);
@@ -217,5 +232,6 @@
         public System.Windows.Forms.TextBox txtTotal;
         public System.Windows.Forms.TextBox txtData;
         public System.Windows.Forms.TextBox txtObs;
+        public System.Windows.Forms.TextBox txtCodigo;
     }
 }
