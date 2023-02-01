@@ -130,6 +130,18 @@
     <Compile Include="Views\Frmhistorico.Designer.cs">
       <DependentUpon>Frmhistorico.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Frmlogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Frmlogin.Designer.cs">
+      <DependentUpon>Frmlogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Frmmenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Frmmenu.Designer.cs">
+      <DependentUpon>Frmmenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Frmpagto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +168,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Views\Frmclientes.resx">
       <DependentUpon>Frmclientes.cs</DependentUpon>
@@ -171,6 +184,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Frmhistorico.resx">
       <DependentUpon>Frmhistorico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Frmlogin.resx">
+      <DependentUpon>Frmlogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Frmmenu.resx">
+      <DependentUpon>Frmmenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Frmpagto.resx">
       <DependentUpon>Frmpagto.cs</DependentUpon>
@@ -195,6 +214,32 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\cadastro clientes 40 x 40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuarios 40x40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\couple64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cad_produtos 40x40.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1481080293_Money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\configurações.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fundo sistema.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fundo sistema azul.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bannerVenda1.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

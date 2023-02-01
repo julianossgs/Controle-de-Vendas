@@ -39,3 +39,5 @@ C:\Users\Juliano\Desktop\PROJETOS DESKTOP\Controle de Vendas com C# e MySql\Proj
 C:\Users\Juliano\Desktop\PROJETOS DESKTOP\Controle de Vendas com C# e MySql\Projeto Controle Vendas\obj\Debug\Projeto_Controle_Vendas.Views.Frmpagto.resources
 C:\Users\Juliano\Desktop\PROJETOS DESKTOP\Controle de Vendas com C# e MySql\Projeto Controle Vendas\obj\Debug\Projeto_Controle_Vendas.Views.Frmhistorico.resources
 C:\Users\Juliano\Desktop\PROJETOS DESKTOP\Controle de Vendas com C# e MySql\Projeto Controle Vendas\obj\Debug\Projeto_Controle_Vendas.Views.Frmdetalhe.resources
+C:\Users\Juliano\Desktop\PROJETOS DESKTOP\Controle de Vendas com C# e MySql\Projeto Controle Vendas\obj\Debug\Projeto_Controle_Vendas.Views.Frmlogin.resources
+C:\Users\Juliano\Desktop\PROJETOS DESKTOP\Controle de Vendas com C# e MySql\Projeto Controle Vendas\obj\Debug\Projeto_Controle_Vendas.Views.Frmmenu.resources
