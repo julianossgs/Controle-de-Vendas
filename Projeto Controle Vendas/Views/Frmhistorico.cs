@@ -49,7 +49,6 @@ namespace Projeto_Controle_Vendas.Views
         {
             VendaDAO vendaDAO = new VendaDAO();
             
-
             datainicio= Convert.ToDateTime(dtInicio.Value.ToString("yyyy-MM-dd"));
             datafim= Convert.ToDateTime(dtFim.Value.ToString("yyyy-MM-dd"));
 
