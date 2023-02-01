@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using Projeto_Controle_Vendas.Conexao;
 using Projeto_Controle_Vendas.Model;
+using Projeto_Controle_Vendas.Views;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -223,6 +224,77 @@ namespace Projeto_Controle_Vendas.Dao
             }
             finally { conexao.Close(); }
 
+        }
+        #endregion
+
+        #region Método que efetua Login
+        public bool Login(string email,string senha)
+        {
+            try
+            {
+
+                // 1º passo - comando sql
+                string sql =  @"select * from tb_funcionarios
+                 where email = @email and senha = @senha";
+
+                //2º passo - executar o comando sql
+                MySqlCommand cmd = new MySqlCommand(sql, conexao);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@senha", senha);
+
+                conexao.Open();
+
+                MySqlDataReader reader= cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    //Login realizado com sucesso
+                    //Buscndo nivel e usuário do sistema
+                    string nivel = reader.GetString("nivel_acesso");
+                    string nome = reader.GetString("nome");
+
+                    MessageBox.Show("Seja bem vindo ao sistema, " + nome + " Você acessou como: " + nivel);
+
+                    //Abrir a tela menu principal
+                    Frmmenu telaMenu = new Frmmenu();
+
+                    //Nivel de administrador
+                    if (nivel.Equals("Administrador"))
+                    {
+                       
+                        telaMenu.Show();
+                        telaMenu.txtUsuario.Text = nome;
+                    }
+
+                    else if (nivel.Equals("Usuário"))
+                    {
+                        //Personalizando as permissões p/ acesso do vendedor
+                        telaMenu.menuConfiguracoes.Enabled= false;
+                        telaMenu.Show();
+                        telaMenu.txtUsuario.Text = nome;
+
+                    }
+
+                    return true;
+                }
+
+                else
+                {
+                    //Falha no Login
+                      return false;
+                }
+
+            }
+            
+
+            catch (Exception e)
+            {
+
+                MessageBox.Show("Erro no Método de Login: " + e.Message);
+            }
+            finally { conexao.Close(); }
+
+            return true;
         }
         #endregion
     }

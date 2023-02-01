@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCadClientes = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,8 +53,9 @@
             this.txtData = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtHora = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.txtusuarioLogado = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -218,7 +220,7 @@
             this.txtData,
             this.toolStripStatusLabel3,
             this.txtHora,
-            this.toolStripStatusLabel5,
+            this.txtusuarioLogado,
             this.txtUsuario});
             this.statusStrip1.Location = new System.Drawing.Point(0, 486);
             this.statusStrip1.Name = "statusStrip1";
@@ -239,8 +241,7 @@
             this.txtData.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtData.ForeColor = System.Drawing.Color.Red;
             this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(95, 20);
-            this.txtData.Text = "01/02/2023";
+            this.txtData.Size = new System.Drawing.Size(0, 20);
             // 
             // toolStripStatusLabel3
             // 
@@ -255,24 +256,27 @@
             this.txtHora.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHora.ForeColor = System.Drawing.Color.Red;
             this.txtHora.Name = "txtHora";
-            this.txtHora.Size = new System.Drawing.Size(49, 20);
-            this.txtHora.Text = "15:00";
+            this.txtHora.Size = new System.Drawing.Size(0, 20);
             // 
-            // toolStripStatusLabel5
+            // txtusuarioLogado
             // 
-            this.toolStripStatusLabel5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripStatusLabel5.ForeColor = System.Drawing.Color.Red;
-            this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
-            this.toolStripStatusLabel5.Size = new System.Drawing.Size(115, 20);
-            this.toolStripStatusLabel5.Text = "Usuário logado";
+            this.txtusuarioLogado.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtusuarioLogado.ForeColor = System.Drawing.Color.Red;
+            this.txtusuarioLogado.Name = "txtusuarioLogado";
+            this.txtusuarioLogado.Size = new System.Drawing.Size(0, 20);
+            this.txtusuarioLogado.ToolTipText = "Usuário";
             // 
             // txtUsuario
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.ForeColor = System.Drawing.Color.Red;
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(59, 20);
-            this.txtUsuario.Text = "Juliano";
+            this.txtUsuario.Size = new System.Drawing.Size(0, 20);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Frmmenu
             // 
@@ -293,6 +297,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal - Controle de Vendas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Frmmenu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -305,30 +310,31 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem menuCliente;
         private System.Windows.Forms.ToolStripMenuItem menuCadClientes;
         private System.Windows.Forms.ToolStripMenuItem menuConClientes;
-        private System.Windows.Forms.ToolStripMenuItem menuFuncionarios;
         private System.Windows.Forms.ToolStripMenuItem menuCadFuncionarios;
         private System.Windows.Forms.ToolStripMenuItem menuConsFuncionarios;
-        private System.Windows.Forms.ToolStripMenuItem menuFornecedores;
         private System.Windows.Forms.ToolStripMenuItem menuCadFornecedores;
         private System.Windows.Forms.ToolStripMenuItem menuConsFornecedores;
-        private System.Windows.Forms.ToolStripMenuItem menuProdutos;
         private System.Windows.Forms.ToolStripMenuItem menuCadProdutos;
         private System.Windows.Forms.ToolStripMenuItem menuConsProdutos;
-        private System.Windows.Forms.ToolStripMenuItem menuVendas;
         private System.Windows.Forms.ToolStripMenuItem menuNovaVenda;
         private System.Windows.Forms.ToolStripMenuItem menuHistoricoVenda;
-        private System.Windows.Forms.ToolStripMenuItem menuConfiguracoes;
         private System.Windows.Forms.ToolStripMenuItem menuTrocarUsuario;
         private System.Windows.Forms.ToolStripMenuItem menuSairSistema;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripStatusLabel txtData;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
-        private System.Windows.Forms.ToolStripStatusLabel txtHora;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
-        private System.Windows.Forms.ToolStripStatusLabel txtUsuario;
+        public System.Windows.Forms.ToolStripMenuItem menuCliente;
+        public System.Windows.Forms.ToolStripMenuItem menuFuncionarios;
+        public System.Windows.Forms.ToolStripMenuItem menuFornecedores;
+        public System.Windows.Forms.ToolStripMenuItem menuProdutos;
+        public System.Windows.Forms.ToolStripMenuItem menuVendas;
+        public System.Windows.Forms.ToolStripMenuItem menuConfiguracoes;
+        public System.Windows.Forms.ToolStripStatusLabel txtData;
+        public System.Windows.Forms.ToolStripStatusLabel txtHora;
+        public System.Windows.Forms.ToolStripStatusLabel txtUsuario;
+        private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.ToolStripStatusLabel txtusuarioLogado;
     }
 }
