@@ -577,14 +577,11 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView gridFornecedores;
         private System.Windows.Forms.Button btnPesquisar;
-        private System.Windows.Forms.TabPage tabConsulta;
         private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtNumero;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tabFornecedores;
-        private System.Windows.Forms.TabPage tabCadastro;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtEndereco;
         private System.Windows.Forms.Label label10;
@@ -602,5 +599,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.TabPage tabConsulta;
+        public System.Windows.Forms.TabControl tabFornecedores;
+        public System.Windows.Forms.TabPage tabCadastro;
     }
 }

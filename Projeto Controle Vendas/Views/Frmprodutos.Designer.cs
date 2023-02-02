@@ -385,14 +385,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TabControl tabProdutos;
-        private System.Windows.Forms.TabPage tabCadastro;
-        private System.Windows.Forms.TabPage tabConsulta;
         private System.Windows.Forms.DataGridView gridProdutos;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.TabControl tabProdutos;
+        public System.Windows.Forms.TabPage tabCadastro;
+        public System.Windows.Forms.TabPage tabConsulta;
     }
 }

@@ -587,9 +587,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tabClientes;
-        private System.Windows.Forms.TabPage tabCadastro;
-        private System.Windows.Forms.TabPage tabConsulta;
         private System.Windows.Forms.MaskedTextBox txtCelular;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.MaskedTextBox txtTelefone;
@@ -627,5 +624,8 @@
         private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btPesquisarAPI;
+        public System.Windows.Forms.TabControl tabClientes;
+        public System.Windows.Forms.TabPage tabConsulta;
+        public System.Windows.Forms.TabPage tabCadastro;
     }
 }

@@ -664,8 +664,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tabFuncionarios;
-        private System.Windows.Forms.TabPage tabCadastro;
         private System.Windows.Forms.ComboBox cbNivel;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ComboBox cbCargo;
@@ -705,10 +703,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TabPage tabConsulta;
         private System.Windows.Forms.DataGridView gridFuncionario;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.Label label16;
+        public System.Windows.Forms.TabControl tabFuncionarios;
+        public System.Windows.Forms.TabPage tabCadastro;
+        public System.Windows.Forms.TabPage tabConsulta;
     }
 }
